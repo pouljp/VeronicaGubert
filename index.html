@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark only">
+<meta name="theme-color" content="#F4EEE1">
+<title>Veronica Gubert — Travessias de Alma</title>
+
+<!-- Prévia ao colar o link no WhatsApp, Instagram, etc. -->
+<meta property="og:title" content="Veronica Gubert — Travessias de Alma">
+<meta property="og:description" content="Mentoria Coletiva, Leitura de Alma e terapias sistêmicas & energéticas. Agende sua sessão.">
+<meta property="og:image" content="og-image.png">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Veronica Gubert — Travessias de Alma">
+<meta name="twitter:description" content="Mentoria Coletiva, Leitura de Alma e terapias sistêmicas & energéticas.">
+<meta name="twitter:image" content="og-image.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F4EEE1;
+    --bg-alt:#ECE2CB;
+    --gold:#A9803A;
+    --gold-soft:#7C5A22;
+    --bronze:#6B5530;
+    --text:#2B2014;
+    --text-muted:#5A4C38;
+    --line:rgba(140,109,49,0.32);
+    --card-bg:rgba(0,0,0,0.025);
+  }
+  *{box-sizing:border-box;}
+  html, body{
+    background-color:#F4EEE1 !important;
+  }
+  html{scroll-behavior:smooth; color-scheme:dark; forced-color-adjust:none;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Cormorant Garamond', serif;
+    font-size:18px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.eyebrow{font-family:'Cinzel', serif; letter-spacing:0.04em;}
+  a{color:inherit; text-decoration:none;}
+  img{max-width:100%;}
+
+  /* ---------- Decorative arcs / glow ---------- */
+  .arcs{
+    position:absolute; inset:0; overflow:hidden; pointer-events:none; z-index:0;
+  }
+  .arcs::before, .arcs::after{
+    content:''; position:absolute; border-radius:50%; border:1px solid var(--line);
+  }
+  .glow{
+    position:absolute; width:60vw; height:60vw; max-width:900px; max-height:900px;
+    background:radial-gradient(circle, rgba(201,168,76,0.16) 0%, rgba(201,168,76,0) 70%);
+    border-radius:50%; pointer-events:none; z-index:0;
+  }
+
+  .thread{
+    position:absolute; left:50%; top:0; width:1px; height:100%;
+    background:linear-gradient(to bottom, transparent, var(--line) 10%, var(--line) 90%, transparent);
+    transform:translateX(-50%); z-index:0;
+  }
+  .dot{
+    position:absolute; left:50%; width:6px; height:6px; border-radius:50%;
+    background:var(--gold); transform:translateX(-50%);
+    box-shadow:0 0 12px 2px rgba(201,168,76,0.6);
+  }
+
+  /* ---------- Layout helpers ---------- */
+  .wrap{max-width:1080px; margin:0 auto; padding:0 24px; position:relative; z-index:1;}
+  section{position:relative; padding:90px 0; background-color:#F4EEE1;}
+  .eyebrow{
+    font-size:13px; letter-spacing:0.18em; color:var(--gold); text-transform:uppercase;
+    display:flex; align-items:center; gap:12px; margin-bottom:18px;
+  }
+  .eyebrow::before, .eyebrow::after{content:''; height:1px; width:28px; background:var(--bronze);}
+  .eyebrow.center{justify-content:center;}
+  h2.section-title{
+    font-size:clamp(28px,4vw,42px); font-weight:500; color:var(--gold-soft);
+    margin:0 0 14px; line-height:1.25;
+  }
+  p.section-lede{
+    color:var(--text-muted); font-size:20px; max-width:640px; margin:0 0 50px;
+    font-style:italic;
+  }
+  .center{text-align:center; margin-left:auto; margin-right:auto;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    min-height:92vh; display:flex; align-items:center; justify-content:center; text-align:center;
+    padding:60px 0;
+  }
+  .hero .wrap{display:flex; flex-direction:column; align-items:center;}
+  .hero .eyebrow{margin-bottom:28px;}
+  .hero h1{
+    font-size:clamp(34px,6vw,64px); font-weight:500; margin:0 0 22px;
+    color:var(--gold-soft);
+  }
+  .hero p.lede{
+    font-size:clamp(18px,2.4vw,24px); font-style:italic; color:var(--text-muted);
+    max-width:600px; margin:0 0 40px;
+  }
+  .hero .scroll-cue{
+    font-size:13px; letter-spacing:0.2em; color:var(--bronze); text-transform:uppercase;
+    margin-top:30px;
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex; align-items:center; gap:8px; font-family:'Cinzel', serif;
+    font-size:13px; letter-spacing:0.1em; text-transform:uppercase;
+    padding:14px 30px; border:1px solid var(--gold); border-radius:2px;
+    background:transparent; color:var(--gold-soft); cursor:pointer; transition:all .25s ease;
+  }
+  .btn:hover{background:var(--gold); color:#FBF7EE;}
+  .btn.solid{background:var(--gold); color:#FBF7EE;}
+  .btn.solid:hover{background:var(--gold-soft);}
+  .btn.disabled{opacity:.55; cursor:default;}
+  .btn-row{display:flex; flex-wrap:wrap; gap:14px; justify-content:center;}
+
+  /* ---------- Featured product (Mentoria / Leitura de Alma) ---------- */
+  .featured{
+    border:1px solid var(--line); border-radius:4px; padding:50px 40px;
+    background:linear-gradient(180deg, rgba(201,168,76,0.05), transparent 60%);
+    position:relative;
+  }
+  .featured .tag{
+    font-size:12px; letter-spacing:0.16em; color:var(--bronze); text-transform:uppercase;
+    margin-bottom:10px; display:block;
+  }
+  .featured h3{font-size:clamp(26px,3.4vw,36px); color:var(--gold-soft); margin:0 0 6px; font-weight:500;}
+  .featured h4.subtitle{
+    font-family:'Cormorant Garamond', serif; font-style:italic; font-weight:400;
+    color:var(--text-muted); font-size:20px; margin:0 0 28px;
+  }
+  .featured .desc{margin-bottom:30px; color:var(--text);}
+  .featured .desc p{margin:0 0 16px;}
+
+  .modules{
+    list-style:none; padding:0; margin:0 0 34px; display:grid; gap:16px;
+    grid-template-columns:repeat(auto-fit, minmax(240px,1fr));
+  }
+  .modules li{
+    padding-left:0;
+  }
+  .modules .m-num{color:var(--gold); font-family:'Cinzel'; font-size:12px; letter-spacing:0.1em;}
+  .modules .m-title{display:block; font-size:18px; margin:2px 0 2px; color:var(--gold-soft);}
+  .modules .m-desc{color:var(--text-muted); font-size:16px; font-style:italic;}
+
+  .meta-row{
+    display:flex; flex-wrap:wrap; gap:28px; margin-bottom:30px; font-size:16px; color:#3D2F1C;
+  }
+  .meta-row strong{color:var(--text); display:block; font-family:'Cinzel'; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:4px; color:var(--gold);}
+
+  .price-box{
+    border:1px solid var(--line); border-radius:3px; padding:24px 26px; margin-bottom:28px;
+    background:rgba(255,255,255,0.015);
+  }
+  .price-box .price-label{font-size:13px; letter-spacing:0.1em; text-transform:uppercase; color:var(--bronze); margin-bottom:8px;}
+  .price-box .price-value{font-size:28px; color:var(--gold-soft); font-family:'Cinzel'; font-weight:500;}
+  .price-box .price-alt{color:#3D2F1C; font-size:16px; margin-top:4px;}
+  .price-box .price-note{color:var(--text-muted); font-size:14px; margin-top:10px;}
+
+  /* ---------- Card grid (the other 12 services) ---------- */
+  .grid{
+    display:grid; gap:22px; grid-template-columns:repeat(auto-fit, minmax(280px,1fr));
+  }
+  .card{
+    border:1px solid var(--line); border-radius:3px; padding:30px 26px;
+    background:var(--card-bg); display:flex; flex-direction:column;
+    transition:border-color .25s ease, transform .25s ease;
+  }
+  .card:hover{border-color:var(--gold); transform:translateY(-3px);}
+  .card .cat-row{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:10px; flex-wrap:wrap;}
+  .card .cat{font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--bronze);}
+  .badge-pacote{
+    font-family:'Cinzel'; font-size:10px; letter-spacing:0.08em; text-transform:uppercase;
+    color:var(--bg); background:var(--gold); padding:4px 10px; border-radius:20px; white-space:nowrap;
+  }
+  .card h3{font-size:22px; color:var(--gold-soft); margin:0 0 10px; font-weight:500;}
+  .card .desc{color:#3D2F1C; font-size:16px; margin-bottom:16px;}
+  .tiers-wrap{display:flex; flex-direction:column; gap:12px; margin:14px 0 18px;}
+  .tier{
+    border:1px solid var(--line); border-left:3px solid var(--gold); border-radius:2px;
+    padding:12px 14px; background:rgba(0,0,0,0.018);
+  }
+  .tier-label{font-family:'Cinzel'; font-size:11px; letter-spacing:0.08em; text-transform:uppercase; color:var(--bronze); margin-bottom:4px;}
+  .tier-installment{font-family:'Cinzel'; font-size:17px; color:var(--gold-soft); font-weight:500;}
+  .tier-cash{font-size:15px; color:var(--text); margin-top:2px;}
+  .tier-note{font-size:13px; color:var(--text-muted); margin-top:4px; font-style:italic;}
+  .card .btn{width:100%; justify-content:center; font-size:12px; padding:12px 20px;}
+  .card ul.benefits{list-style:none; padding:0; margin:0 0 18px;}
+  .card ul.benefits li{
+    font-size:15px; color:var(--text); margin-bottom:8px; padding-left:16px; position:relative;
+  }
+  .card ul.benefits li::before{
+    content:'✦'; position:absolute; left:0; top:1px; color:var(--gold); font-size:11px;
+  }
+  .card .info-line{font-size:14px; color:#3D2F1C; margin-bottom:4px;}
+  .card .info-line strong{color:var(--gold);}
+
+
+  /* ---------- Footer ---------- */
+  footer{
+    padding:70px 0 50px; text-align:center; border-top:1px solid var(--line);
+  }
+  footer .ig{font-family:'Cinzel'; color:var(--gold); letter-spacing:0.06em; margin-top:10px; display:inline-block;}
+  footer .note{color:var(--text-muted); font-size:14px; margin-top:30px; max-width:520px; margin-left:auto; margin-right:auto;}
+
+  /* ---------- Floating WhatsApp ---------- */
+  .float-wa{
+    position:fixed; bottom:22px; right:22px; z-index:50;
+    background:var(--gold); color:#FBF7EE; font-family:'Cinzel'; font-size:12px;
+    letter-spacing:0.08em; text-transform:uppercase; padding:14px 20px; border-radius:30px;
+    box-shadow:0 6px 24px rgba(0,0,0,0.4);
+  }
+
+  @media (max-width:640px){
+    section{padding:60px 0;}
+    .featured{padding:34px 22px;}
+  }
+</style>
+</head>
+<body style="background-color:#F4EEE1; margin:0;">
+
+<!-- =========================================================
+     CONFIGURAÇÃO DE LINKS DE PAGAMENTO
+     Cole aqui o link de pagamento de cada produto.
+     Troque APENAS o texto entre aspas, sem mudar o nome (key) à esquerda.
+     Se deixar como está (""), o botão mostrará "em breve" e abrirá o WhatsApp.
+     ========================================================= -->
+<script>
+  const WHATSAPP_NUMBER = "5549998211618"; // (49) 99821-1618
+  const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}`;
+
+  const PAYMENT_LINKS = {
+    mentoriaColetiva: "",
+    leituraDeAlma: "",
+    constelacaoEmpresarial: "",
+    constelacaoFamiliar: "",
+    mentoriaSistemicaVip: "",
+    apometria: "",
+    thetaHealing: "",
+    orientacaoEspiritual: "",
+    terapiaRadionica: "",
+    limpezaAmbientes: "",
+    reikiAnimal: "",
+    reikiInfantil: "",
+    reikiGestante: "",
+    reikiGeral: "",
+  };
+</script>
+
+<div class="float-wa" id="floatWa">Fale no WhatsApp</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="arcs"><div class="glow" style="top:-10%; left:50%; transform:translateX(-50%);"></div></div>
+  <div class="wrap">
+    <span class="eyebrow center">Veronica Gubert</span>
+    <h1>Travessias de Alma</h1>
+    <p class="lede">Um espaço de reencontro com a sua essência — entre o sistêmico, o energético e o espiritual.</p>
+    <div class="btn-row">
+      <a class="btn solid" href="#mentoria-coletiva">Mentoria Coletiva</a>
+      <a class="btn" href="#leitura-de-alma">Leitura de Alma</a>
+      <a class="btn" href="#terapias">Todas as Terapias</a>
+    </div>
+    <span class="scroll-cue">role para explorar ↓</span>
+  </div>
+</section>
+
+<!-- ============ MENTORIA COLETIVA (destaque) ============ -->
+<section id="mentoria-coletiva">
+  <div class="wrap">
+    <div class="eyebrow center">Mentoria Coletiva</div>
+    <h2 class="section-title center">Entre o Fim e o Renascimento</h2>
+    <p class="section-lede center">Uma travessia emocional, sistêmica e espiritual para mulheres que se despediram de antigas versões de si mesmas.</p>
+
+    <div class="featured">
+      <span class="tag">Para mulheres que vivem um despertar de consciência</span>
+      <h3>“Eu sinto que muita coisa terminou dentro de mim… mas ainda não sei como sustentar quem estou me tornando.”</h3>
+      <div class="desc">
+        <p>Para mulheres que passaram por términos, rupturas ou grandes mudanças internas, que estão cansadas de repetir padrões emocionais e desejam reconstruir identidade, força emocional e direção de vida.</p>
+        <p>Uma jornada para compreender padrões emocionais e sistêmicos, fortalecer a autonomia emocional, restaurar autoestima e identidade, e integrar espiritualidade com vida prática — em grupo fechado, com encontros semanais ao vivo, todas as quintas-feiras, das 20h às 21h.</p>
+      </div>
+
+      <ul class="modules">
+        <li><span class="m-num">Módulo 1</span><span class="m-title">A morte simbólica</span><span class="m-desc">Nem todo fim é perda. Alguns finais são iniciações.</span></li>
+        <li><span class="m-num">Módulo 2</span><span class="m-title">O vazio entre versões</span><span class="m-desc">O silêncio entre quem você foi e quem está nascendo.</span></li>
+        <li><span class="m-num">Módulo 3</span><span class="m-title">As raízes invisíveis</span><span class="m-desc">O que não é visto continua conduzindo a vida.</span></li>
+        <li><span class="m-num">Módulo 4</span><span class="m-title">Reconstrução da identidade</span><span class="m-desc">Você não precisa voltar a ser quem era.</span></li>
+        <li><span class="m-num">Módulo 5</span><span class="m-title">Relações, limites e frequência</span><span class="m-desc">O novo eu cria novas relações.</span></li>
+        <li><span class="m-num">Módulo 6</span><span class="m-title">O renascimento</span><span class="m-desc">Renascer é parar de fugir da própria verdade.</span></li>
+      </ul>
+
+      <div class="meta-row">
+        <div><strong>Formato</strong>Encontros semanais ao vivo, quintas, 20h–21h · grupo fechado</div>
+        <div><strong>Vagas</strong>Limitadas, para preservar a profundidade do processo</div>
+      </div>
+
+      <div class="price-box" id="mentoriaPriceBox">
+        <!-- preenchido via JS conforme a data -->
+      </div>
+
+      <div class="btn-row" style="justify-content:flex-start;">
+        <a class="btn solid" id="btnMentoriaColetiva" target="_blank" rel="noopener">Garantir minha vaga</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LEITURA DE ALMA (destaque) ============ -->
+<section id="leitura-de-alma">
+  <div class="arcs"><div class="glow" style="top:10%; left:0;"></div></div>
+  <div class="wrap">
+    <div class="eyebrow center">Leitura de Alma</div>
+    <h2 class="section-title center">Um reencontro com a sua essência original</h2>
+    <p class="section-lede center">Antes dos condicionamentos, das dores e dos papéis assumidos para pertencer — existe uma frequência única que pertence somente a você.</p>
+
+    <div class="featured">
+      <div class="desc">
+        <p>A Leitura de Alma é um mergulho profundo nessa essência: um encontro que permite acessar informações sutis da sua trajetória, trazendo compreensão sobre a sua assinatura vibracional de origem, seus dons naturais, habilidades inatas, potenciais adormecidos e os aprendizados que sua alma busca desenvolver nesta existência.</p>
+        <p>Mais do que respostas, a experiência proporciona reconhecimento — porque a cura começa quando você para de tentar se tornar alguém e se recorda de quem sempre foi.</p>
+      </div>
+
+      <ul class="modules">
+        <li><span class="m-title">Assinatura vibracional</span><span class="m-desc">Sua origem energética de essência.</span></li>
+        <li><span class="m-title">Dons e potenciais</span><span class="m-desc">Talentos naturais e habilidades adormecidas.</span></li>
+        <li><span class="m-title">Padrões e ciclos</span><span class="m-desc">O que se repete nos relacionamentos e na vida.</span></li>
+        <li><span class="m-title">O chamado da alma</span><span class="m-desc">A lição e o movimento evolutivo deste momento.</span></li>
+      </ul>
+
+      <div class="meta-row">
+        <div><strong>Duração</strong>1 hora</div>
+        <div><strong>Modalidade</strong>Ao vivo, via Zoom</div>
+      </div>
+
+      <div class="price-box">
+        <div class="price-label">Energia de troca</div>
+        <div class="price-value">12x de R$190,00</div>
+        <div class="price-alt">ou R$1.900,00 à vista</div>
+      </div>
+
+      <div class="btn-row" style="justify-content:flex-start;">
+        <a class="btn solid" id="btnLeituraDeAlma" target="_blank" rel="noopener">Agendar minha sessão</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEMAIS TERAPIAS (grid dinâmico via JS) ============ -->
+<section id="terapias">
+  <div class="wrap">
+    <div class="eyebrow center">Terapias & Sessões</div>
+    <h2 class="section-title center">Caminhos de cura sistêmica e energética</h2>
+    <p class="section-lede center" style="margin-left:auto;margin-right:auto;">Escolha o caminho que mais ressoa com o seu momento.</p>
+    <div class="grid" id="cardGrid"></div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="eyebrow center">Vamos conversar</div>
+    <h2 class="section-title">Fale comigo no WhatsApp</h2>
+    <div class="btn-row">
+      <a class="btn solid" id="btnWhatsapp" target="_blank" rel="noopener">(49) 99821-1618</a>
+    </div>
+    <a class="ig" href="https://instagram.com/veronicagubert.oficial" target="_blank" rel="noopener">@veronicagubert.oficial</a>
+    <p class="note">Pagamentos via Pix ou cartão (em até 12x). O Reiki e as terapias energéticas e sistêmicas são abordagens complementares e não substituem acompanhamento médico, psicológico ou veterinário.</p>
+  </div>
+</footer>
+
+<script>
+  // ---------- Util: botão de WhatsApp com mensagem pronta ----------
+  function waLink(productName){
+    const msg = encodeURIComponent(`Olá Veronica! Gostaria de saber mais sobre: ${productName}`);
+    return `${WHATSAPP_LINK}?text=${msg}`;
+  }
+
+  function setButton(el, productKey, productName){
+    const link = PAYMENT_LINKS[productKey];
+    if(link && link.trim() !== ""){
+      el.href = link;
+      el.textContent = el.textContent; // mantém o texto original do botão
+    } else {
+      el.href = waLink(productName);
+      el.classList.add('via-whatsapp');
+    }
+  }
+
+  document.getElementById('floatWa').onclick = () => window.open(waLink('Atendimento geral'), '_blank');
+  document.getElementById('btnWhatsapp').href = WHATSAPP_LINK;
+
+  setButton(document.getElementById('btnMentoriaColetiva'), 'mentoriaColetiva', 'Mentoria Coletiva — Entre o Fim e o Renascimento');
+  setButton(document.getElementById('btnLeituraDeAlma'), 'leituraDeAlma', 'Leitura de Alma');
+
+  // ---------- Preço da Mentoria Coletiva conforme a data ----------
+  (function(){
+    const box = document.getElementById('mentoriaPriceBox');
+    const now = new Date();
+    const deadlineTier2 = new Date('2026-06-22T21:00:00-03:00');
+    if(now < deadlineTier2){
+      box.innerHTML = `
+        <div class="price-label">Energia de troca — valor especial da turma</div>
+        <div class="price-value">12x de R$150,00</div>
+        <div class="price-alt">ou R$1.500,00 à vista no Pix</div>
+        <div class="price-note">Valor válido até segunda-feira, 22/06, às 21h, ou até preencher as vagas.</div>`;
+    } else {
+      box.innerHTML = `
+        <div class="price-label">Turma 1 com vagas encerradas</div>
+        <div class="price-value">Lista de espera — Turma 2</div>
+        <div class="price-note">Entre em contato para garantir prioridade na próxima turma.</div>`;
+    }
+  })();
+
+  // ---------- Dados das demais terapias ----------
+  const SERVICES = [
+    {
+      key:'constelacaoEmpresarial', cat:'Constelação Sistêmica', title:'Constelação Empresarial', pacote:false,
+      desc:'Uma abordagem sistêmica que permite identificar e transformar dinâmicas ocultas que impactam o sucesso e a saúde de empresas, projetos e equipes. Assim como nas famílias, as organizações também têm um campo de informação que carrega histórias, lealdades e padrões inconscientes.',
+      benefits:['Clareza sobre conflitos e bloqueios — identifica causas ocultas de estagnação, perda de clientes, dívidas e dificuldades de crescimento','Melhoria do clima organizacional — ajusta vínculos entre sócios, colaboradores e áreas da empresa','Harmonia nos relacionamentos profissionais — fortalece respeito, ordem e pertencimento','Alinhamento com o propósito do negócio — reconecta o sistema à missão e aos valores essenciais','Apoio em tomadas de decisão — favorece escolhas mais conscientes e equilibradas'],
+      duration:'Até 1h30', modality:'Online, via Zoom',
+      tiers:[{installment:'12x de R$120,00', cash:'R$1.200,00 à vista'}]
+    },
+    {
+      key:'constelacaoFamiliar', cat:'Constelação Sistêmica', title:'Constelação Familiar', pacote:false,
+      desc:'Revela dinâmicas ocultas nos sistemas familiares, permitindo compreender e transformar padrões que se repetem e causam sofrimento. Acessa memórias transgeracionais, lealdades inconscientes e desequilíbrios sistêmicos.',
+      benefits:['Clareza sobre padrões de repetição — identifica causas ocultas de dificuldades emocionais, financeiras ou afetivas','Reconciliação com a história familiar — traz paz e reconexão com a força do sistema','Harmonia nos relacionamentos — ajusta vínculos com pais, filhos, parceiros e antepassados','Liberação de lealdades inconscientes — rompe ciclos de autossabotagem, culpa e sofrimento entre gerações','Fortalecimento pessoal — permite viver com mais presença, coragem e pertencimento'],
+      duration:'Até 1h30', modality:'Presencial ou à distância, via Zoom',
+      tiers:[{installment:'12x de R$120,00', cash:'R$1.200,00 à vista', note:'Pix ou cartão'}]
+    },
+    {
+      key:'mentoriaSistemicaVip', cat:'Mentoria Terapêutica', title:'Mentoria Sistêmica', pacote:false,
+      desc:'Olha para a pessoa em seus diferentes contextos — familiar, afetivo, profissional e social. Por meio do diálogo terapêutico, exercícios sistêmicos e recursos de visualização, amplia a consciência e promove reconexão com a força vital.',
+      benefits:['Amplia a consciência sobre padrões — ajuda a identificar dinâmicas repetitivas que geram sofrimento','Apoia reconciliações e curas emocionais — favorece reconexão com a história familiar e pertencimento saudável','Melhora relacionamentos — facilita diálogos mais conscientes e vínculos equilibrados','Fortalece recursos internos — desperta coragem, autocompaixão e responsabilidade pelo próprio destino','Acompanha momentos de transição — suporte em mudanças, lutos, separações ou decisões importantes'],
+      duration:'6 sessões de 1h30 a 2h, semanais ou quinzenais', modality:'Online, via Zoom',
+      tiers:[{label:'VIP (individual)', installment:'12x de R$800,00', cash:'R$8.000,00 à vista'}, {label:'Coletiva (em grupo)', installment:'Consulte disponibilidade de turmas e valores'}]
+    },
+    {
+      key:'thetaHealing', cat:'Terapia Energética', title:'ThetaHealing', pacote:true,
+      desc:'Utiliza a frequência das ondas cerebrais theta para acessar o subconsciente e promover mudanças profundas em padrões, crenças e emoções que limitam sua vida. Integra espiritualidade, ciência e consciência.',
+      benefits:['Ressignificação de crenças limitantes — transforma padrões que sabotam relacionamentos, saúde e prosperidade','Equilíbrio emocional — libera sentimentos de medo, culpa, tristeza e estresse','Clareza mental e espiritual — amplia a percepção e fortalece a conexão com o propósito de vida','Aumento da autoconfiança — desperta segurança interior e coragem para viver com autenticidade','Ativação da autocura — favorece processos de cura física, emocional e energética'],
+      duration:'1 hora por sessão', modality:'Online, via Zoom',
+      tiers:[{installment:'Pacote com 3 sessões: 12x de R$200,00', cash:'R$2.000,00 à vista no Pix'}]
+    },
+    {
+      key:'apometria', cat:'Terapia Energética', title:'Apometria', pacote:true,
+      desc:'Técnica terapêutica vibracional que atua na limpeza e harmonização de energias sutis, ajudando a identificar e tratar desequilíbrios que afetam a vida física, emocional, mental e espiritual, por meio do desdobramento consciente.',
+      benefits:['Limpeza energética profunda — libera miasmas, formas-pensamento, obsessões espirituais e cargas acumuladas','Equilíbrio emocional e mental — reduz ansiedade, angústia, medo, tristeza e pensamentos repetitivos','Harmonização espiritual — restaura a conexão com a essência e fortalece o campo vibracional','Tratamento de padrões recorrentes — auxilia na identificação de crenças limitantes e pactos inconscientes','Apoio em processos de cura física — como terapia complementar, favorece recuperação e equilíbrio do organismo'],
+      duration:'40 min a 1h por sessão', modality:'Sessão à distância',
+      tiers:[{installment:'Pacote com 3 sessões: 12x de R$180,00', cash:'R$1.800,00 à vista'}]
+    },
+    {
+      key:'terapiaRadionica', cat:'Terapia Energética', title:'Terapia Radiônica', pacote:false,
+      desc:'Atua à distância identificando e harmonizando desequilíbrios nos campos físico, emocional, mental e espiritual. Usa instrumentos como pêndulo, gráficos e emissores de frequência, trabalhando na frequência vibracional.',
+      benefits:['Harmoniza energias sutis — limpa bloqueios e padrões vibracionais que afetam saúde, prosperidade e relacionamentos','Equilibra emoções e pensamentos — ajuda a reduzir ansiedade, medos, tristeza e insegurança','Apoia tratamentos de saúde — atua de forma complementar a tratamentos médicos convencionais','Fortalece a proteção energética — cria maior segurança contra influências externas e ambientes carregados','Potencializa prosperidade e realização — ajuda a desbloquear crenças limitantes e o fluxo da abundância'],
+      duration:'40 min a 1h por sessão', modality:'À distância (retorno por áudio) ou ao vivo, via Zoom',
+      tiers:[{label:'À distância', installment:'12x de R$80,00', cash:'R$800,00 à vista'}, {label:'Ao vivo', installment:'12x de R$120,00', cash:'R$1.200,00 à vista', note:'Pix: 49998211618'}]
+    },
+    {
+      key:'limpezaAmbientes', cat:'Harmonização de Espaços', title:'Limpeza Energética de Ambientes', pacote:false,
+      desc:'Harmonização energética de lares, empresas e espaços terapêuticos. Limpa energias densas, memórias energéticas negativas e influências sutis que afetam o bem-estar, a harmonia e a prosperidade de um lugar.',
+      benefits:['Limpeza de cargas espirituais e padrões vibracionais negativos','Restauração da leveza e paz no ambiente','Melhoria na qualidade do sono, convivência e produtividade','Ativação de frequências mais elevadas no espaço','Reequilíbrio do campo energético do local'],
+      duration:'40 min a 1h por sessão', modality:'À distância, com retorno via áudio no WhatsApp',
+      tiers:[{installment:'12x de R$150,00', cash:'R$1.500,00 à vista', note:'Pix: 49998211618'}]
+    },
+    {
+      key:'orientacaoEspiritual', cat:'Acolhimento', title:'Orientação Espiritual', pacote:false,
+      desc:'Um espaço seguro de escuta, acolhimento e conexão com a sabedoria interior. Oferece suporte para momentos de dúvidas, transições, crises existenciais ou desafios que pedem mais compreensão e serenidade.',
+      benefits:['Acolhimento emocional — espaço de não-julgamento para expressar sentimentos livremente','Clareza em momentos de incerteza — auxilia a tomar decisões e enxergar caminhos com serenidade','Reconexão com seu propósito — resgata sentido, propósito e motivação para seguir','Fortalecimento espiritual — apoia processos de fé, autoconhecimento e confiança na própria jornada','Equilíbrio energético — podem ser incluídas práticas sutis como Reiki, meditações e orações'],
+      duration:'1 hora', modality:'Individual, online via Zoom',
+      tiers:[{installment:'12x de R$80,00', cash:'R$800,00 à vista'}]
+    },
+    {
+      key:'reikiGeral', cat:'Reiki', title:'Reiki — Adultos', pacote:true,
+      desc:'Terapia energética não invasiva que promove equilíbrio físico, mental, emocional e espiritual, transcendendo tempo e espaço. Ideal para quem busca mais bem-estar, clareza e conexão interior em qualquer fase da vida.',
+      benefits:['Reduz ansiedade e estresse — acalma a mente e promove sensação de paz profunda','Equilibra emoções — auxilia em mudanças, transições, luto, separações e desafios','Alivia dores físicas — suporte complementar a dores crônicas e tensão muscular','Melhora o sono e a qualidade do descanso','Aumenta vitalidade e disposição — harmoniza a energia vital para o dia a dia','Apoia o autoconhecimento e o desenvolvimento espiritual'],
+      duration:'40 min a 1h por sessão', modality:'À distância ou ao vivo, via Zoom',
+      tiers:[{label:'À distância', installment:'12x de R$120,00', cash:'R$999,00 à vista'}, {label:'Ao vivo', installment:'12x de R$150,00', cash:'R$1.200,00 à vista', note:'Pix: 49998211618'}]
+    },
+    {
+      key:'reikiGestante', cat:'Reiki', title:'Reiki — Gestante', pacote:true,
+      desc:'Terapia energética suave e acolhedora que apoia a mulher durante a gestação, equilibrando corpo, mente e emoções nesse momento único e transformador.',
+      benefits:['Reduz ansiedade e medos — alivia preocupações e tensão emocional, promovendo confiança','Equilibra as emoções — harmoniza o campo energético diante das mudanças hormonais','Melhora a qualidade do sono — contribui para noites mais tranquilas','Diminui desconfortos físicos — ajuda a aliviar dores lombares, inchaços e tensões da gravidez','Fortalece o vínculo mãe-bebê e papai-bebê — nutre o campo amoroso de conexão','Prepara para o parto — favorece presença, confiança e entrega ao processo do nascimento'],
+      duration:'40 min a 1h por sessão', modality:'À distância ou ao vivo, via Zoom',
+      tiers:[{label:'À distância', installment:'12x de R$120,00', cash:'R$999,00 à vista'}, {label:'Ao vivo', installment:'12x de R$150,00', cash:'R$1.500,00 à vista', note:'Pix: 4998211618'}]
+    },
+    {
+      key:'reikiInfantil', cat:'Reiki', title:'Reiki — Infantil', pacote:true,
+      desc:'Terapia energética delicada, segura e acolhedora, ideal para apoiar o desenvolvimento saudável das crianças em todas as fases da vida — naturalmente mais sensíveis à energia do Reiki.',
+      benefits:['Reduz ansiedade e insegurança — acalma medos, nervosismo e preocupações','Melhora a qualidade do sono — relaxamento profundo para quem tem dificuldade de dormir ou pesadelos','Auxilia na concentração e foco — favorece clareza mental e capacidade de atenção','Apoia processos emocionais — separação dos pais, mudança de escola, luto ou novas fases','Fortalece o sistema imunológico — contribui para uma saúde mais estável','Desperta autoconfiança e autoestima — sentir-se mais seguro, amado e conectado à própria essência'],
+      duration:'40 min a 1h por sessão', modality:'À distância, com retorno via áudio no WhatsApp',
+      tiers:[{installment:'Pacote com 3 sessões: 12x de R$120,00', cash:'R$999,00 à vista', note:'Pix: 49998211618'}]
+    },
+    {
+      key:'reikiAnimal', cat:'Reiki', title:'Reiki — Animal', pacote:true,
+      desc:'Terapia energética suave e não invasiva para companheiros animais, ajudando-os a viver com mais harmonia e felicidade diante de ansiedade, estresse ou problemas de saúde. Não substitui cuidados veterinários.',
+      benefits:['Reduz estresse e ansiedade — segurança e calma após traumas, mudanças ou medo','Acelera processos de recuperação — apoia cirurgias, doenças ou feridas, estimulando o sistema imunológico','Alivia dores e desconfortos — auxilia em dores crônicas e inflamações','Equilibra emoções e comportamento — ajuda animais agressivos, depressivos ou hiperativos','Fortalece o vínculo com o tutor — relação mais harmoniosa entre animal e família','Apoia em momentos de transição — mais serenidade para animais idosos ou em fase de despedida'],
+      duration:'40 min a 1h por sessão', modality:'À distância, com retorno via áudio no WhatsApp',
+      tiers:[{installment:'Pacote com 3 sessões: 12x de R$100,00', cash:'R$950,00 à vista', note:'Pix: 49998211618'}]
+    },
+  ];
+
+  const grid = document.getElementById('cardGrid');
+  SERVICES.forEach(s => {
+    const card = document.createElement('div');
+    card.className = 'card';
+    const tiersHtml = s.tiers.map(t => `
+      <div class="tier">
+        ${t.label ? `<div class="tier-label">${t.label}</div>` : ''}
+        <div class="tier-installment">${t.installment}</div>
+        ${t.cash ? `<div class="tier-cash">ou ${t.cash}</div>` : ''}
+        ${t.note ? `<div class="tier-note">${t.note}</div>` : ''}
+      </div>`).join('');
+    card.innerHTML = `
+      <div class="cat-row">
+        <span class="cat">${s.cat}</span>
+        ${s.pacote ? '<span class="badge-pacote">Pacote de sessões</span>' : ''}
+      </div>
+      <h3>${s.title}</h3>
+      <p class="desc">${s.desc}</p>
+      <ul class="benefits">${s.benefits.map(b => `<li>${b}</li>`).join('')}</ul>
+      <div class="info-line"><strong>Duração:</strong> ${s.duration}</div>
+      <div class="info-line"><strong>Modalidade:</strong> ${s.modality}</div>
+      <div class="tiers-wrap">${tiersHtml}</div>
+      <a class="btn" target="_blank" rel="noopener">Agendar / Contratar</a>
+    `;
+    const btn = card.querySelector('.btn');
+    setButton(btn, s.key, s.title);
+    grid.appendChild(card);
+  });
+</script>
+
+</body>
+</html>
